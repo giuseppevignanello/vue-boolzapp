@@ -24,6 +24,7 @@ img {
 #left{
     width: 40%; 
     background-color: var(--received_message);
+    border-right: 1px solid var(--buttons);
 }
 
 #left_header, 
@@ -33,10 +34,10 @@ img {
     background-color: var(--header)
 }
 
-#left_header {
-    border-right: 1px solid var(--buttons);
+#left_footer {
+    height: 70px; 
+    background-color: var(--received_message);
 }
-
 #notification_section {
     height: 80px; 
     background-color: var(--notifications)
