@@ -67,7 +67,9 @@ img {
 }
 .contact .last_login, 
 #contact_section .time,
-#notification_section .text a {
+#notification_section .text a, 
+#right_footer .emoji, 
+#right_footer .audio {
     color:  gray;
 }
 
