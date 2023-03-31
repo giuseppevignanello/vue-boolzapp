@@ -39,17 +39,28 @@ img {
 }
 
 #notification_section {
-    height: 90px; 
+    height: 80px; 
     background-color: var(--notifications)
 }
 
 .active_contact_section .image img,
-#user_account .image img {
+#user_account .image img
+ {
     height: 50px;
 }
 
-.active_contact_section .name .last_login {
+.notification_icon {
+    height: 45px;
+}
+
+
+.active_contact_section .name .last_login, 
+#notification_section .text a {
     font-size: 14px
+}
+
+#notification_section .text a {
+    color:  gray;
 }
 
 .header_icons div,
