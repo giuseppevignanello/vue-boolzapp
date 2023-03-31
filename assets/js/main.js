@@ -195,6 +195,17 @@ createApp({
                         status: 'sent'
                     }
                 )
+                setTimeout(() => {
+                    this.contacts[this.activeContact].messages.push(
+                        {
+                            date: currentDate.getDate() + '/' + currentDate.getMonth() + "/" + currentDate.getFullYear() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds(),
+                            message: 'Ma cosa ti aspetti che risponda, sono soltanto una web app sviluppata da Giuseppe Vignanello',
+                            status: 'received'
+                        }
+                    )
+                },
+            
+                1000)
             }
 
         }
