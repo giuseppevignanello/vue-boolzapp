@@ -61,8 +61,8 @@
                 <!-- /search -->
                 <div id="contacts">
                     <ul>
-                        <li v-for="(contact,index) in contacts"  @click="clickOnContacts(index)" >
-                            <div id="contact_section" class="d-flex justify-content-between">
+                        <li v-for="(contact,index) in contacts"  @click="clickOnContacts(index)" :class="{bg_gray: index===activeContact}">
+                            <div class="contact_section d-flex justify-content-between">
                                 <div class=" contact d-flex align-items-center py-2">
                                     <div class="image mx-2">
                                         <img class="rounded-circle" :src="contact.avatar" alt="">

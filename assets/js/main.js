@@ -181,7 +181,7 @@ const { createApp } = Vue
     },
     methods: {
         clickOnContacts(index) {
-            this.activeContact = index
+            this.activeContact = index; 
         }
     }
   }).mount('#app')

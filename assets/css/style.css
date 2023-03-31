@@ -15,6 +15,17 @@ body {
     background-attachment: fixed;
 }
 
+#left_header .user_icons div:hover,
+#contacts .contact_section:hover,
+.header_icons div:hover, 
+#right_footer .row div:hover {
+    cursor: pointer;
+}
+
+.bg_gray {
+    background-color: var(--light-gradfient-bg)
+}
+
 /* #endregion general */
 
 .wrapper {
@@ -69,8 +80,9 @@ body {
 #contacts ul {
     margin-left: -2rem
 }
+
 .contact .last_login, 
-#contact_section .time,
+.contact_section .time,
 #notification_section .text a, 
 #right_footer .emoji, 
 #right_footer .audio {
