@@ -97,7 +97,6 @@ body {
 }
 
 #right_content .new_message {
-    width: 250px;
     height:50px; 
     margin-bottom: 1rem;  
     color: black;
