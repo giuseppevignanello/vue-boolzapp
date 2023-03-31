@@ -43,10 +43,16 @@ img {
     background-color: var(--notifications)
 }
 
+.active_contact_section .image img,
 #user_account .image img {
     height: 50px;
 }
 
+.active_contact_section .name .last_login {
+    font-size: 14px
+}
+
+.header_icons div,
 .user_icons div {
     color: var(--buttons)
 }
