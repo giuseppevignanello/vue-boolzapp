@@ -1,3 +1,4 @@
+/* #region general */
 :root {
     --dark-gradient-bg: #009688; 
     --light-gradfient-bg: #dbdbd2; 
@@ -5,8 +6,13 @@
     --notifications: #8edafc; 
     --send_message: #d5f9ba; 
     --received_message: #ffffff;
+    --buttons: #b1b1b1; 
 }
 
+img {
+    max-width:100%
+}
+/* #endregion general */
 
 .wrapper {
     width: 80%;
@@ -14,24 +20,47 @@
     height: 95vh; 
 }
 
+/* #region left */
+
 #left{
     width: 40%; 
     background-color: var(--received_message);
 }
+
+#left_header, 
+#right_header, 
+#right_footer {
+    height: 70px; 
+    background-color: var(--header)
+}
+
+#left_header {
+    border-right: 1px solid var(--buttons);
+}
+
+#notification_section {
+    height: 90px; 
+    background-color: var(--notifications)
+}
+
+#user_account .image img {
+    height: 50px;
+}
+
+.user_icons div {
+    color: var(--buttons)
+}
+
+/* #endregion left */
 
 #right {
     width: 60%;
     background-image: url(../img/mine.jpg);
 }
 
-#left_header, 
-#right_header, 
-#right_footer {
-    height: 80px; 
-    background-color: var(--header)
-}
 
-#notification_section {
-    height: 100px; 
-    background-color: var(--notifications)
-}
+
+
+
+
+
