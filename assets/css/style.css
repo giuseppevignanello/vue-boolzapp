@@ -9,9 +9,12 @@
     --buttons: #b1b1b1; 
 }
 
-img {
-    max-width:100%
+body {
+    background-image: linear-gradient(0deg, var(--light-gradfient-bg) 80%, var(--dark-gradient-bg)0);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
+
 /* #endregion general */
 
 .wrapper {
