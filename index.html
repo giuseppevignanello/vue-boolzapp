@@ -90,10 +90,10 @@
                 <header id="right_header" class="d-flex align-items-center justify-content-between">
                     <div class="active_contact_section contact d-flex align-items-center">
                         <div class="image mx-2">
-                            <img class="rounded-circle" src="./assets/img/avatar_1.jpg" alt="">
+                            <img class="rounded-circle" :src="contacts[activeContact].avatar" alt="">
                         </div>
                         <div class="name">
-                            <span><strong> Michele </strong></span> <br>
+                            <span><strong> {{contacts[activeContact].name}} </strong></span> <br>
                             <span class="last_login">Ultimo accesso oggi alle 12:00</span>
                         </div>
                     </div>
