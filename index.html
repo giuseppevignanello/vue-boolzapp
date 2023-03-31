@@ -113,18 +113,6 @@
                             <div class="time"><span>{{message.date}}</span></div>
                         </div>
                     </div>
-                    <!-- <div class="new_message_sent">
-                        <div class="badge sent new_message">
-                            <div class="text"><span>{{contacts[activeContact].messages[1].message}}</span></div>
-                            <div class="time">{{contacts[activeContact].messages[1].date}}</div>
-                        </div>
-                    </div>
-                    <div class="new_message_received ">
-                        <div class="badge received new_message d-flex">
-                            <div class="text"><span>{{contacts[activeContact].messages[2].message}}</span></div>
-                            <div class="time">{{contacts[activeContact].messages[2].date}}</div>
-                        </div>
-                    </div> -->
                 </div>
                 <!-- /right_content -->
                 <footer id="right_footer">
@@ -134,7 +122,7 @@
                                 <i class="fa-regular fa-face-smile fa-xl"></i>
                             </div>
                             <div class="input_message col-10">
-                                <input type="text" class="form-control" id="message" placeholder=" Scrivi un messaggio">
+                                <input @keyup.enter="sendMessage" v-model="newMessage" type="text" class="form-control" id="message" placeholder=" Scrivi un messaggio">
                             </div>
                             <div class="audio col-1 d-flex justify-content-center">
                                 <i class="fa-solid fa-microphone fa-xl"></i>

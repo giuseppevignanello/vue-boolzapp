@@ -117,8 +117,12 @@ body {
     justify-content: space-between;
 }
 
+#right_content .text {
+    font-size: 16px;
+}
+
 .new_message .time {
-    font-size: 8px;
+    font-size: 12px;
     align-self: end;
 }
 
