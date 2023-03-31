@@ -59,6 +59,7 @@ img {
     font-size: 14px
 }
 
+
 #notification_section .text a {
     color:  gray;
 }
@@ -67,6 +68,8 @@ img {
 .user_icons div {
     color: var(--buttons)
 }
+
+
 
 /* #endregion left */
 
