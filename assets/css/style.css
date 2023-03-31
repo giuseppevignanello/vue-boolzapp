@@ -86,14 +86,23 @@ img {
 
 #right_content {
     height: calc(100vh - 140px);
-    padding-right: 7rem;
-    padding-left: 7rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
 }
 
 #right_content .new_message {
     width: 250px;
     height:50px; 
     margin-bottom: 1rem;  
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.new_message .time {
+    font-size: 10px;
+    align-self: end;
 }
 
 .new_message_sent {
@@ -102,7 +111,7 @@ img {
    
 }
 
-.bg_sent {
+.sent {
     background-color: var(--send_message);
 }
 
@@ -112,10 +121,10 @@ img {
    
 }
 
-.bg_received {
+.received {
     background-color: var(--received_message);
 }
-/* #endregion righ */
+/* #endregion rigth */
 
 
 
