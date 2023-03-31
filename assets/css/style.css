@@ -45,16 +45,48 @@ body {
 #right_header, 
 #right_footer {
     height: 70px; 
-    background-color: var(--header)
+    background-color: var(--header);
+ 
 }
 
 #left_footer {
     height: 70px; 
     background-color: var(--received_message);
 }
+
+#left_header, 
+#right_header {
+    position: sticky;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+#left_footer, 
+#right_footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+
 #notification_section {
+    position: sticky;
+    top: 70px;
     height: 80px; 
     background-color: var(--notifications)
+}
+
+#search_section {
+    position: sticky;
+    top: 150px;
+}
+
+#contacts {
+    position: sticky;
+    top:200px;
 }
 
 .contact .image img,
@@ -103,9 +135,13 @@ body {
 }
 
 #right_content {
-    height: calc(100vh - 140px);
     padding-right: 3rem;
     padding-left: 3rem;
+    height: calc(100% - 140px);
+    position: sticky;
+    top: 70px;
+    bottom: 70px;
+    overflow-y: scroll;
 }
 
 #right_content .new_message {
