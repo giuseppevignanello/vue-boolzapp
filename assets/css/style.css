@@ -1,3 +1,13 @@
+:root {
+    --dark-gradient-bg: #009688; 
+    --light-gradfient-bg: #dbdbd2; 
+    --header: #eaeaea; 
+    --notifications: #8edafc; 
+    --send_message: #d5f9ba; 
+    --received_message: #ffffff;
+}
+
+
 .wrapper {
     width: 80%;
     margin: auto;
@@ -6,22 +16,22 @@
 
 #left{
     width: 40%; 
-    background-color: red;
+    background-color: var(--received_message);
 }
 
 #right {
     width: 60%;
-    background-color: yellow;
+    background-image: url(../img/mine.jpg);
 }
 
 #left_header, 
 #right_header, 
 #right_footer {
     height: 80px; 
-    background-color: green;
+    background-color: var(--header)
 }
 
 #notification_section {
     height: 100px; 
-    background-color: aqua;
+    background-color: var(--notifications)
 }
