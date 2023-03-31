@@ -107,13 +107,13 @@
                 </header>
                 <!-- /right_header -->
                 <div id="right_content" class="d-flex h-100 flex-column justify-content-end">
-                    <div class="new_message_sent">
-                        <div class="badge sent new_message">
-                            <div class="text"><span>{{contacts[activeContact].messages[0].message}}</span></div>
-                            <div class="time"><span>{{contacts[activeContact].messages[0].date}}</span></div>
+                    <div v-for="(message, index) in contacts[activeContact].messages" :class="contacts[activeContact].messages[index].status === 'sent' ? 'new_message_sent' : 'new_message_received'">
+                        <div :class="contacts[activeContact].messages[index].status === 'sent' ? 'sent' : 'received'" class="badge new_message">
+                            <div class="text"><span>{{message.message}}</span></div>
+                            <div class="time"><span>{{message.date}}</span></div>
                         </div>
                     </div>
-                    <div class="new_message_sent">
+                    <!-- <div class="new_message_sent">
                         <div class="badge sent new_message">
                             <div class="text"><span>{{contacts[activeContact].messages[1].message}}</span></div>
                             <div class="time">{{contacts[activeContact].messages[1].date}}</div>
@@ -124,7 +124,7 @@
                             <div class="text"><span>{{contacts[activeContact].messages[2].message}}</span></div>
                             <div class="time">{{contacts[activeContact].messages[2].date}}</div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- /right_content -->
                 <footer id="right_footer">
