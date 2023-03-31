@@ -17,7 +17,6 @@ img {
 .wrapper {
     width: 80%;
     margin: auto;
-    height: 95vh; 
 }
 
 /* #region left */
@@ -79,11 +78,18 @@ img {
 
 
 /* #endregion left */
-
+/* #region right */
 #right {
     width: 60%;
     background-image: url(../img/mine.jpg);
 }
+
+#right_content {
+    height: calc(100vh - 140px);
+}
+
+
+/* #endregion righ */
 
 
 
