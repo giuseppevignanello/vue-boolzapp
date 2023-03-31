@@ -61,7 +61,7 @@
                 <!-- /search -->
                 <div id="contacts">
                     <ul>
-                        <li v-for="(contact,index) in contacts">
+                        <li v-for="(contact,index) in contacts"  @click="clickOnContacts(index)" >
                             <div id="contact_section" class="d-flex justify-content-between">
                                 <div class=" contact d-flex align-items-center py-2">
                                     <div class="image mx-2">
@@ -74,105 +74,7 @@
                                 </div>
                                 <div class="time p-2">12:00</div>
                             </div>
-                        <!-- </li>
-                        <li>
-                            <div id="contact_section" class="d-flex justify-content-between">
-                                <div class=" contact d-flex align-items-center py-2">
-                                    <div class="image mx-2">
-                                        <img class="rounded-circle" src="./assets/img/avatar_1.jpg" alt="">
-                                    </div>
-                                    <div class="name">
-                                        <span><strong> Michele </strong></span> <br>
-                                        <span class="last_login">Ultimo accesso oggi alle 12:00</span>
-                                    </div>
-                                </div>
-                                <div class="time p-2">12:00</div>
-                            </div>
                         </li>
-                        <li>
-                            <div id="contact_section" class="d-flex justify-content-between">
-                                <div class=" contact d-flex align-items-center py-2">
-                                    <div class="image mx-2">
-                                        <img class="rounded-circle" src="./assets/img/avatar_1.jpg" alt="">
-                                    </div>
-                                    <div class="name">
-                                        <span><strong> Michele </strong></span> <br>
-                                        <span class="last_login">Ultimo accesso oggi alle 12:00</span>
-                                    </div>
-                                </div>
-                                <div class="time p-2">12:00</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div id="contact_section" class="d-flex justify-content-between">
-                                <div class=" contact d-flex align-items-center py-2">
-                                    <div class="image mx-2">
-                                        <img class="rounded-circle" src="./assets/img/avatar_1.jpg" alt="">
-                                    </div>
-                                    <div class="name">
-                                        <span><strong> Michele </strong></span> <br>
-                                        <span class="last_login">Ultimo accesso oggi alle 12:00</span>
-                                    </div>
-                                </div>
-                                <div class="time p-2">12:00</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div id="contact_section" class="d-flex justify-content-between">
-                                <div class=" contact d-flex align-items-center py-2">
-                                    <div class="image mx-2">
-                                        <img class="rounded-circle" src="./assets/img/avatar_1.jpg" alt="">
-                                    </div>
-                                    <div class="name">
-                                        <span><strong> Michele </strong></span> <br>
-                                        <span class="last_login">Ultimo accesso oggi alle 12:00</span>
-                                    </div>
-                                </div>
-                                <div class="time p-2">12:00</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div id="contact_section" class="d-flex justify-content-between">
-                                <div class=" contact d-flex align-items-center py-2">
-                                    <div class="image mx-2">
-                                        <img class="rounded-circle" src="./assets/img/avatar_1.jpg" alt="">
-                                    </div>
-                                    <div class="name">
-                                        <span><strong> Michele </strong></span> <br>
-                                        <span class="last_login">Ultimo accesso oggi alle 12:00</span>
-                                    </div>
-                                </div>
-                                <div class="time p-2">12:00</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div id="contact_section" class="d-flex justify-content-between">
-                                <div class=" contact d-flex align-items-center py-2">
-                                    <div class="image mx-2">
-                                        <img class="rounded-circle" src="./assets/img/avatar_1.jpg" alt="">
-                                    </div>
-                                    <div class="name">
-                                        <span><strong> Michele </strong></span> <br>
-                                        <span class="last_login">Ultimo accesso oggi alle 12:00</span>
-                                    </div>
-                                </div>
-                                <div class="time p-2">12:00</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div id="contact_section" class="d-flex justify-content-between">
-                                <div class=" contact d-flex align-items-center py-2">
-                                    <div class="image mx-2">
-                                        <img class="rounded-circle" src="./assets/img/avatar_1.jpg" alt="">
-                                    </div>
-                                    <div class="name">
-                                        <span><strong> Michele </strong></span> <br>
-                                        <span class="last_login">Ultimo accesso oggi alle 12:00</span>
-                                    </div>
-                                </div>
-                                <div class="time p-2">12:00</div>
-                            </div>
-                        </li> -->
                     </ul>
 
                 </div>
@@ -207,20 +109,20 @@
                 <div id="right_content" class="d-flex h-100 flex-column justify-content-end">
                     <div class="new_message_sent">
                         <div class="badge sent new_message">
-                            <div class="text"><span>Hai portato a spasso il cane</span></div>
-                            <div class="time"><span>15:30</span></div>
+                            <div class="text"><span>{{contacts[activeContact].messages[0].message}}</span></div>
+                            <div class="time"><span>{{contacts[activeContact].messages[0].date}}</span></div>
                         </div>
                     </div>
                     <div class="new_message_sent">
                         <div class="badge sent new_message">
-                            <div class="text"><span>Ricordati di stendere i panni</span></div>
-                            <div class="time">15:30</div>
+                            <div class="text"><span>{{contacts[activeContact].messages[1].message}}</span></div>
+                            <div class="time">{{contacts[activeContact].messages[1].date}}</div>
                         </div>
                     </div>
                     <div class="new_message_received ">
                         <div class="badge received new_message d-flex">
-                            <div class="text"><span>Tutto fatto!</span></div>
-                            <div class="time">16:15</div>
+                            <div class="text"><span>{{contacts[activeContact].messages[2].message}}</span></div>
+                            <div class="time">{{contacts[activeContact].messages[2].date}}</div>
                         </div>
                     </div>
                 </div>
