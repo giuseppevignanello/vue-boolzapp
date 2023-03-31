@@ -1,0 +1,27 @@
+.wrapper {
+    width: 80%;
+    margin: auto;
+    height: 95vh; 
+}
+
+#left{
+    width: 40%; 
+    background-color: red;
+}
+
+#right {
+    width: 60%;
+    background-color: yellow;
+}
+
+#left_header, 
+#right_header, 
+#right_footer {
+    height: 80px; 
+    background-color: green;
+}
+
+#notification_section {
+    height: 100px; 
+    background-color: aqua;
+}
