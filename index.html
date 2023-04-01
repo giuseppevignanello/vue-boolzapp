@@ -18,7 +18,7 @@
 
 
     <div id="app">
-        <div class="wrapper d-flex">
+        <div class="wrapper d-flex my-4">
             <div id="left">
                 <header id="left_header" class="d-flex align-items-center justify-content-between">
                     <div id="user_account" class="d-flex align-items-center">
@@ -107,7 +107,7 @@
 
                 </header>
                 <!-- /right_header -->
-                <div id="right_content" class="d-flex h-100 flex-column justify-content-end">
+                <div id="right_content" class="d-flex flex-column">
                     <div v-for="(message, index) in contacts[activeContact].messages"
                         :class="contacts[activeContact].messages[index].status === 'sent' ? 'new_message_sent' : 'new_message_received'">
                         <div :class="contacts[activeContact].messages[index].status === 'sent' ? 'sent' : 'received'"

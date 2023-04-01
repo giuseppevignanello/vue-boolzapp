@@ -30,7 +30,8 @@ body {
 
 .wrapper {
     width: 80%;
-    margin: auto;
+    margin: auto auto;
+    height: 900px;
 }
 
 /* #region left */
@@ -131,17 +132,16 @@ body {
 /* #region right */
 #right {
     width: 60%;
-    background-image: url(../img/mine.jpg);
+    height: 100%;
+    
 }
 
 #right_content {
+    background-image: url(../img/mine.jpg);
     padding-right: 3rem;
     padding-left: 3rem;
-    height: calc(100% - 140px);
-    position: sticky;
-    top: 70px;
-    bottom: 70px;
-    overflow-y: scroll;
+    overflow-y: auto;
+    height: calc(100% - 140px)
 }
 
 #right_content .new_message {
