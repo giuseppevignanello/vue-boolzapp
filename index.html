@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="name">
                                         <span><strong> {{contact.name}} </strong></span> <br>
-                                        <span class="last_login">Ultimo accesso oggi alle 12:00</span>
+                                        <span class="last_message">{{contact.messages[arrayLength(messages) - 1].message}}</span>
                                     </div>
                                 </div>
                                 <div class="time p-2">12:00</div>
@@ -95,7 +95,7 @@
                         </div>
                         <div class="name">
                             <span><strong> {{contacts[activeContact].name}} </strong></span> <br>
-                            <span class="last_login">Ultimo accesso oggi alle 12:00</span>
+                            <span class="last_message">Ultimo accesso oggi alle 12:00</span>
                         </div>
                     </div>
                     <div class="header_icons d-flex w-25 justify-content-evenly">

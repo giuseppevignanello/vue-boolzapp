@@ -237,7 +237,11 @@ createApp({
             randomNumber= Math.floor(Math.random() * (max - min + 1))
 
             return randomNumber
-        }
+        }, 
+        arrayLength(array) {
+            if(this.array) {
+            return array.length
+        }}
 
     }
 }).mount('#app')
