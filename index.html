@@ -111,9 +111,9 @@
                     <div v-for="(message, index) in contacts[activeContact].messages"
                         :class="contacts[activeContact].messages[index].status === 'sent' ? 'new_message_sent' : 'new_message_received'">
                         <div :class="contacts[activeContact].messages[index].status === 'sent' ? 'sent' : 'received'"
-                            class="badge new_message">
-                            <div class="text"><span>{{message.message}}</span></div>
-                            <div class="time"><span>{{message.date}}</span></div>
+                            class="new_message">
+                            <p class="text">{{message.message}}</p>
+                            <span class="time">{{message.date}}</span>
                         </div>
                     </div>
                 </div>
