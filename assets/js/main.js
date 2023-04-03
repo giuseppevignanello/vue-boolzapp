@@ -13,6 +13,27 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            randomAnswerList: [
+                "Ciao! Come posso aiutarti oggi?",
+                "Mi dispiace, non ho capito. Potresti spiegare meglio?",
+                "Sono spiacente, non ho accesso a quelle informazioni al momento.",
+                "Sto cercando di capire. Potresti fornire ulteriori dettagli?",
+                "Va bene, sto lavorando alla tua richiesta.", "Mi piace la tua domanda! Vediamo se posso aiutarti.",
+                "Posso aiutarti con qualcosa di specifico?", "Sono qui per assisterti. Cosa posso fare per te?",
+                "Non sono sicuro di aver capito. Puoi ripetere, per favore?",
+                "Mi dispiace, ma non posso fare ciò che hai chiesto.",
+                "Ci sono alcune cose che non posso fare. Mi spiace.",
+                "Non ti preoccupare, farò del mio meglio per aiutarti.",
+                "Grazie per avermi contattato. Cosa posso fare per te?",
+                "Posso suggerirti qualcosa? Sono qui per questo.",
+                "Non ho le informazioni necessarie al momento. Puoi riprovare più tardi?",
+                "Ho bisogno di maggiori dettagli per poterti aiutare.",
+                "Certo, farò del mio meglio per rispondere alla tua domanda.",
+                "Non ho risposte per tutto, ma posso provare ad aiutarti.",
+                "Sì, posso confermare che è possibile. Vuoi maggiori informazioni?",
+                "Mi piacerebbe aiutarti. Di cosa hai bisogno?"
+            ],
+
             searchInput: "",
             newMessage: "",
             activeContact: 0,
@@ -186,7 +207,7 @@ createApp({
             this.activeContact = index;
         },
         sendMessage() {
-            const currentDate = new Date; 
+            const currentDate = new Date;
 
             if (this.newMessage.trim() != '') {
                 this.contacts[this.activeContact].messages.push(
@@ -200,18 +221,25 @@ createApp({
                     this.contacts[this.activeContact].messages.push(
                         {
                             date: currentDate.getDate() + '/' + currentDate.getMonth() + "/" + currentDate.getFullYear() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds(),
-                            message: 'Ma cosa ti aspetti che risponda? Sono soltanto una web app sviluppata da Giuseppe Vignanello',
+                            message: this.randomAnswerList[this.randomAnswer(0, this.randomAnswerList.length - 1)],
                             status: 'received'
                         }
                     )
                 },
-            
-                1000)
+
+                    1000)
                 this.newMessage = ""
             }
 
         },
 
+        randomAnswer(min, max) {
+            randomNumber= Math.floor(Math.random() * (max - min + 1))
+
+            return randomNumber
+        }
+
     }
 }).mount('#app')
+
 
