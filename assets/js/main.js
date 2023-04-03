@@ -38,7 +38,7 @@ createApp({
 
             searchInput: "",
             newMessage: "",
-            activeContact: 0,
+            activeContact: -1,
             contacts: [
                 {
                     name: 'Michele',

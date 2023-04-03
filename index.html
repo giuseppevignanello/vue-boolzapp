@@ -91,7 +91,8 @@
             <!-- /left -->
             <div id="right" class="d-flex flex-column justify-content-between">
                 <header id="right_header" class="d-flex align-items-center justify-content-between">
-                    <div class="active_contact_section contact d-flex align-items-center">
+                    <div v-if="activeContact===-1" class="active_contact_section contact d-flex align-items-center"></div>
+                    <div v-else class="active_contact_section contact d-flex align-items-center">
                         <div class="image mx-2">
                             <img class="rounded-circle" :src="contacts[activeContact].avatar" alt="">
                         </div>
@@ -116,7 +117,14 @@
 
                 </header>
                 <!-- /right_header -->
-                <div id="right_content" class="d-flex flex-column-reverse">
+                <div v-if="activeContact === -1" class="welcome_page d-flex align-items-center justify-content-center flex-column">
+                    <img src="./assets/img/pc_smartphone.png" alt="">
+                    <h2>Boolzapp Web</h2>
+                    <h4 class="text-center">send messages to fictional people and receive random answers</h4>
+                    <span><i class="me-2 fa-solid fa-unlock"></i>obviously, without end to end cryptography</span>
+                </div>
+
+                <div v-else class="right_content d-flex flex-column-reverse">
                     <div v-for="(message, index) in contacts[activeContact].messages.slice().reverse()"
                     :class="message.status === 'sent' ? 'new_message_sent' : 'new_message_received'">
                         <div :class="message.status === 'sent' ? 'sent' : 'received'"

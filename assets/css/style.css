@@ -145,14 +145,39 @@ body {
     inset: 10px auto auto -134px!important;
 }
 
-#right_content {
+.right_content {
     background-image: url(../img/mine.jpg);
     padding: 2rem;
     overflow-y: auto;
     height: calc(100% - 140px)
 }
 
-#right_content .new_message {
+.welcome_page {
+    position: relative;
+    background-color: var(--header);
+    height:calc(100% - 140px)
+}
+.welcome_page img {
+    width: 250px; 
+    position: absolute;
+    bottom: 50%; 
+    left: 50%;
+    transform: translate(-50%, -20px);
+    margin-bottom:2rem;
+}
+
+.welcome_page h4 {
+    width: 60%;
+}
+
+.welcome_page span {
+    position: absolute;
+    bottom: 5px;
+}
+
+
+
+.right_content .new_message {
     max-height:100px; 
     margin-bottom: 1rem;  
     color: black;
@@ -164,7 +189,7 @@ body {
     position: relative;
 }
 
-#right_content .text {
+.right_content .text {
     font-size: 16px;
     word-wrap: break-word;
     max-width: 300px;
