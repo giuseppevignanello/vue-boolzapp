@@ -188,7 +188,7 @@ createApp({
         sendMessage() {
             const currentDate = new Date; 
 
-            if (this.newMessage != "") {
+            if (this.newMessage.trim() != '') {
                 this.contacts[this.activeContact].messages.push(
                     {
                         date: currentDate.getDate() + '/' + currentDate.getMonth() + "/" + currentDate.getFullYear() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds(),

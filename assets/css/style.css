@@ -189,7 +189,9 @@ body {
     background-color: var(--received_message);
 }
 
-
+.dropdown-toggle {
+    white-space: inherit!important;
+}
 
 .dropdown-menu {
     inset: -23px 0 auto auto!important;
