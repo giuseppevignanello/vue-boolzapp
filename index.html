@@ -95,7 +95,9 @@
                         </div>
                         <div class="name">
                             <span><strong> {{contacts[activeContact].name}} </strong></span> <br>
-                            <span class="last_login">Ultimo accesso oggi alle 12:00</span>
+                            <span v-if="isWriting" class="last_login"> sta scrivendo... </span>
+                            <span v-else-if="online" class="last_login">online</span>
+                            <span v-else class="last_login">Ultimo accesso oggi alle 12:00</span>
                         </div>
                     </div>
                     <div class="header_icons d-flex w-25 justify-content-evenly">

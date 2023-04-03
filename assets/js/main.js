@@ -13,6 +13,8 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            online: false,
+            isWriting: false,
             randomAnswerList: [
                 "Ciao! Come posso aiutarti oggi?",
                 "Mi dispiace, non ho capito. Potresti spiegare meglio?",
@@ -207,6 +209,7 @@ createApp({
             this.activeContact = index;
         },
         sendMessage() {
+            this.isWriting = true
             const currentDate = new Date;
 
             if (this.newMessage.trim() != '') {
@@ -218,6 +221,8 @@ createApp({
                     }
                 )
                 setTimeout(() => {
+                    this.isWriting = false,
+                    this.online = true
                     this.contacts[this.activeContact].messages.push(
                         {
                             date: currentDate.getDate() + '/' + currentDate.getMonth() + "/" + currentDate.getFullYear() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds(),
@@ -228,6 +233,11 @@ createApp({
                 },
 
                     1000)
+                setTimeout(() =>
+                {
+                    this.online = false 
+                }, 
+                3000) 
                 this.newMessage = ""
             }
 
