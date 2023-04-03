@@ -105,6 +105,7 @@ body {
 
 
 .contact .name .last_login, 
+.last_message 
 #notification_section .text a {
     font-size: 14px
 }
@@ -117,6 +118,7 @@ body {
     margin-left: -2rem
 }
 
+.last_login,
 .contact .last_message, 
 .contact_section .time,
 #notification_section .text a, 
