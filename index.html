@@ -111,12 +111,22 @@
                     <div v-for="(message, index) in contacts[activeContact].messages"
                         :class="contacts[activeContact].messages[index].status === 'sent' ? 'new_message_sent' : 'new_message_received'">
                         <div :class="contacts[activeContact].messages[index].status === 'sent' ? 'sent' : 'received'"
-                            class="new_message">
+                            class="new_message dropdown dropdown-toggle"data-bs-toggle="dropdown" aria-expanded="false">
                             <p class="text">{{message.message}}</p>
                             <span class="time">{{message.date}}</span>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Rispondi</a></li>
+                                <li><a class="dropdown-item" href="#">Reagisci al messaggio</a></li>
+                                <li><a class="dropdown-item" href="#">Scarica</a></li>
+                                <li><a class="dropdown-item" href="#">Inoltra messaggio</a></li>
+                                <li><a class="dropdown-item" href="#">Messaggio Importante</a></li>
+                                <li><a class="dropdown-item" href="#">Segnala</a></li>
+                                <li @click ="contacts[activeContact].messages.splice(index, 1)"><a class="dropdown-item" href="#">Elimina messaggio</a></li>
+                              </ul>
                         </div>
                     </div>
                 </div>
+
                 <!-- /right_content -->
                 <footer id="right_footer">
                     <div class="container">

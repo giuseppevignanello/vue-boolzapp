@@ -189,6 +189,11 @@ body {
     background-color: var(--received_message);
 }
 
+
+
+.dropdown-menu {
+    inset: -23px 0 auto auto!important;
+}
 /* #endregion rigth */
 
 
