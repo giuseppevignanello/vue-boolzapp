@@ -139,7 +139,7 @@
                                     id="message" placeholder=" Scrivi un messaggio">
                             </div>
                             <div class="audio col-1 d-flex justify-content-center">
-                                <i class="fa-solid fa-microphone fa-xl"></i>
+                                <i :class="newMessage != '' ? 'fa-solid fa-paper-plane fa-xl' : 'fa-solid fa-microphone fa-xl'"></i>
                             </div>
                         </div>
                     </div>
