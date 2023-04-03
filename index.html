@@ -109,10 +109,10 @@
 
                 </header>
                 <!-- /right_header -->
-                <div id="right_content" class="d-flex flex-column">
-                    <div v-for="(message, index) in contacts[activeContact].messages"
-                        :class="contacts[activeContact].messages[index].status === 'sent' ? 'new_message_sent' : 'new_message_received'">
-                        <div :class="contacts[activeContact].messages[index].status === 'sent' ? 'sent' : 'received'"
+                <div id="right_content" class="d-flex flex-column-reverse">
+                    <div v-for="(message, index) in contacts[activeContact].messages.slice().reverse()"
+                        :class="message.status === 'sent' ? 'new_message_sent' : 'new_message_received'">
+                        <div :class="message.status === 'sent' ? 'sent' : 'received'"
                             class="new_message dropdown dropdown-toggle"data-bs-toggle="dropdown" aria-expanded="false">
                             <p class="text">{{message.message}}</p>
                             <span class="time">{{message.date}}</span>

@@ -157,6 +157,7 @@ body {
     justify-content: space-between;
     padding: 5px;
     font-weight: bold;
+    position: relative;
 }
 
 #right_content .text {
@@ -195,9 +196,6 @@ body {
     white-space: inherit!important;
 }
 
-.dropdown-menu {
-    inset: -23px 0 auto auto!important;
-}
 /* #endregion rigth */
 
 
