@@ -109,7 +109,7 @@
                                 class="fa-solid fa-ellipsis-vertical"></i>
                             <ul class="dropdown-menu">
                                 <li @click="deleteMessages"><a class="dropdown-item" href="#">Delete messages</a></li>
-                                <li><a class="dropdown-item" href="#">Delete chat</a></li>
+                                <li @click ="deleteChat"><a class="dropdown-item" href="#">Delete chat</a></li>
                             </ul>
                         </div>
                     </div>
@@ -119,7 +119,7 @@
                 <div id="right_content" class="d-flex flex-column">
                     <div v-for="(message, index) in contacts[activeContact].messages" v-if ="contacts[activeContact].messages===[]"
                     > </div>
-                    <div v-else v-for="(message, index) in contacts[activeContact].messages"
+                    <div v-for="(message, index) in contacts[activeContact].messages"
                     :class="message.status === 'sent' ? 'new_message_sent' : 'new_message_received'">
                         <div :class="message.status === 'sent' ? 'sent' : 'received'"
                             class="new_message dropdown dropdown-toggle" data-bs-toggle="dropdown"
