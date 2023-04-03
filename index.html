@@ -63,14 +63,16 @@
                     <ul>
                         <li v-for="(contact,index) in contacts" @click="clickOnContacts(index)"
                             :class="{bg_gray: index===activeContact}">
-                            <div class="contact_section d-flex justify-content-between" :class="contact.name.toUpperCase().includes( searchInput.toUpperCase()) ? '' : 'd-none'">
+                            <div class="contact_section d-flex justify-content-between"
+                                :class="contact.name.toUpperCase().includes( searchInput.toUpperCase()) ? '' : 'd-none'">
                                 <div class=" contact d-flex align-items-center py-2">
                                     <div class="image mx-2">
                                         <img class="rounded-circle" :src="contact.avatar" alt="">
                                     </div>
                                     <div class="name">
                                         <span><strong> {{contact.name}} </strong></span> <br>
-                                        <span class="last_message">{{contact.messages[contact.messages.length -1].message}}</span>
+                                        <span class="last_message">{{contact.messages[contact.messages.length
+                                            -1].message}}</span>
                                     </div>
                                 </div>
                                 <div class="time p-2">12:00</div>
@@ -82,7 +84,7 @@
 
 
                 <!-- /contacts -->
-              
+
 
 
             </div>
@@ -103,17 +105,23 @@
                     <div class="header_icons d-flex w-25 justify-content-evenly">
                         <div> <i class="fa-solid fa-magnifying-glass"></i></div>
                         <div> <i class="fa-solid fa-paperclip"></i></div>
-                        <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
-
+                        <div class="dropdown" data-bs-toggle="dropdown" aria-expanded="false"><i
+                                class="fa-solid fa-ellipsis-vertical"></i>
+                            <ul class="dropdown-menu">
+                                <li @click="deleteMessages"><a class="dropdown-item" href="#">Delete messages</a></li>
+                                <li><a class="dropdown-item" href="#">Delete chat</a></li>
+                            </ul>
+                        </div>
                     </div>
 
                 </header>
                 <!-- /right_header -->
-                <div id="right_content" class="d-flex flex-column-reverse">
-                    <div v-for="(message, index) in contacts[activeContact].messages.slice().reverse()"
+                <div id="right_content" class="d-flex flex-column">
+                    <div v-for="(message, index) in contacts[activeContact].messages"
                         :class="message.status === 'sent' ? 'new_message_sent' : 'new_message_received'">
                         <div :class="message.status === 'sent' ? 'sent' : 'received'"
-                            class="new_message dropdown dropdown-toggle"data-bs-toggle="dropdown" aria-expanded="false">
+                            class="new_message dropdown dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             <p class="text">{{message.message}}</p>
                             <span class="time">{{message.date}}</span>
                             <ul class="dropdown-menu">
@@ -123,8 +131,9 @@
                                 <li><a class="dropdown-item" href="#">Inoltra messaggio</a></li>
                                 <li><a class="dropdown-item" href="#">Messaggio Importante</a></li>
                                 <li><a class="dropdown-item" href="#">Segnala</a></li>
-                                <li @click ="contacts[activeContact].messages.splice(index, 1)"><a class="dropdown-item" href="#">Elimina messaggio</a></li>
-                              </ul>
+                                <li @click="contacts[activeContact].messages.splice(index, 1)"><a class="dropdown-item"
+                                        href="#">Elimina messaggio</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -141,7 +150,8 @@
                                     id="message" placeholder=" Scrivi un messaggio">
                             </div>
                             <div class="audio col-1 d-flex justify-content-center">
-                                <i :class="newMessage != '' ? 'fa-solid fa-paper-plane fa-xl' : 'fa-solid fa-microphone fa-xl'"></i>
+                                <i
+                                    :class="newMessage != '' ? 'fa-solid fa-paper-plane fa-xl' : 'fa-solid fa-microphone fa-xl'"></i>
                             </div>
                         </div>
                     </div>

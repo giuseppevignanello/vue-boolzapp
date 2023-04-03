@@ -248,6 +248,10 @@ createApp({
 
             return randomNumber
         }, 
+
+        deleteMessages() {
+            this.contacts[this.activeContact].messages = []
+        }
      
 
     }

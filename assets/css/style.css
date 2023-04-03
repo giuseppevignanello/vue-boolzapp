@@ -141,6 +141,10 @@ body {
     
 }
 
+#right_header .dropdown-menu {
+    inset: 10px auto auto -134px!important;
+}
+
 #right_content {
     background-image: url(../img/mine.jpg);
     padding: 2rem;
