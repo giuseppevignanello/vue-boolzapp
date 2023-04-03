@@ -13,6 +13,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            searchInput: "",
             newMessage: "",
             activeContact: 0,
             contacts: [
@@ -209,6 +210,8 @@ createApp({
                 this.newMessage = ""
             }
 
-        }
+        },
+
     }
 }).mount('#app')
+
