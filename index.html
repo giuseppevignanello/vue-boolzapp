@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -23,10 +24,10 @@
                 <header id="left_header" class="d-flex align-items-center justify-content-between">
                     <div id="user_account" class="d-flex align-items-center">
                         <div class="image mx-2">
-                            <img class="rounded-circle" src="./assets/img/avatar_io.jpg" alt="">
+                            <img class="rounded-circle" src="./assets/img/avatar_5.jpg" alt="">
                         </div>
                         <div class="name">
-                            <span>Sofia</span>
+                            <span>Peppe</span>
                         </div>
                     </div>
                     <!-- /user account -->
@@ -44,8 +45,8 @@
                         <i class="fa-solid fa-bell-slash fa-xl"></i>
                     </div>
                     <div class="text">
-                        <span> <strong> Ricevi notifiche di nuovi messaggi </strong></span> <br>
-                        <span><a href="#">Attiva notifiche desktop</a></span>
+                        <span> <strong> Receive notifications for new messages </strong></span> <br>
+                        <span><a href="#">Enable desktop notifications</a></span>
 
                     </div>
 
@@ -98,9 +99,9 @@
                         </div>
                         <div class="name">
                             <span><strong> {{contacts[activeContact].name}} </strong></span> <br>
-                            <span v-if="isWriting" class="last_login"> sta scrivendo... </span>
+                            <span v-if="isWriting" class="last_login"> is writing... </span>
                             <span v-else-if="online" class="last_login">online</span>
-                            <span v-else class="last_login">Ultimo accesso oggi alle 12:00</span>
+                            <span v-else class="last_login">last seen today at {{currentHour()}}</span>
                         </div>
                     </div>
                     <div class="header_icons d-flex w-25 justify-content-evenly">
@@ -172,7 +173,8 @@
         </div>
     </div>
 
-
+    
+    <script src="https://unpkg.com/vue-emoji-picker/dist/vue-emoji-picker.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>

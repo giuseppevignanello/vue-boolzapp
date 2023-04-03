@@ -10,188 +10,187 @@
 
 const { createApp } = Vue
 
+
 createApp({
     data() {
         return {
             online: false,
             isWriting: false,
-            randomAnswerList: [
-                "Ciao! Come posso aiutarti oggi?",
-                "Mi dispiace, non ho capito. Potresti spiegare meglio?",
-                "Sono spiacente, non ho accesso a quelle informazioni al momento.",
-                "Sto cercando di capire. Potresti fornire ulteriori dettagli?",
-                "Va bene, sto lavorando alla tua richiesta.", "Mi piace la tua domanda! Vediamo se posso aiutarti.",
-                "Posso aiutarti con qualcosa di specifico?", "Sono qui per assisterti. Cosa posso fare per te?",
-                "Non sono sicuro di aver capito. Puoi ripetere, per favore?",
-                "Mi dispiace, ma non posso fare ciò che hai chiesto.",
-                "Ci sono alcune cose che non posso fare. Mi spiace.",
-                "Non ti preoccupare, farò del mio meglio per aiutarti.",
-                "Grazie per avermi contattato. Cosa posso fare per te?",
-                "Posso suggerirti qualcosa? Sono qui per questo.",
-                "Non ho le informazioni necessarie al momento. Puoi riprovare più tardi?",
-                "Ho bisogno di maggiori dettagli per poterti aiutare.",
-                "Certo, farò del mio meglio per rispondere alla tua domanda.",
-                "Non ho risposte per tutto, ma posso provare ad aiutarti.",
-                "Sì, posso confermare che è possibile. Vuoi maggiori informazioni?",
-                "Mi piacerebbe aiutarti. Di cosa hai bisogno?"
-            ],
-
+            randomAnswerList: ["I'm not sure about that.",
+            "It's possible, but I can't say for certain.",
+            "Definitely not!",
+            "Absolutely!",
+            "That's a good question.",
+            "I'm afraid I don't know.",
+            "Let me think about it for a moment...",
+            "It's hard to say.",
+            "I don't think so, but I could be wrong.",
+            "I'm sorry, I didn't catch that.",
+            "Yes, I agree with you.",
+            "No, I don't think that's right.",
+            "I see what you're saying, but I disagree.",
+            "That's a really interesting point.",
+            "I'm not sure I understand what you mean.",
+            "I'm not qualified to answer that.",
+            "I'm sorry, I'm not able to help you with that.",
+            "I'm not comfortable discussing that topic.",
+            "That's something you'll need to figure out for yourself."],
             searchInput: "",
             newMessage: "",
             activeContact: -1,
             contacts: [
                 {
-                    name: 'Michele',
+                    name: 'Luke',
                     avatar: './assets/img/avatar_1.jpg',
                     visible: true,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
-                            message: 'Hai portato a spasso il cane?',
+                            message: 'Did you walk the dog?',
                             status: 'sent'
                         },
                         {
                             date: '10/01/2020 15:50:00',
-                            message: 'Ricordati di stendere i panni',
+                            message: 'Remember to hang the washing',
                             status: 'sent'
                         },
                         {
                             date: '10/01/2020 16:15:22',
-                            message: 'Tutto fatto!',
+                            message: 'All done!',
                             status: 'received'
                         }
                     ],
                 },
                 {
-                    name: 'Fabio',
+                    name: 'Richard',
                     avatar: './assets/img/avatar_2.jpg',
                     visible: true,
                     messages: [
                         {
                             date: '20/03/2020 16:30:00',
-                            message: 'Ciao come stai?',
+                            message: 'Hi, did you have a good weekend?',
                             status: 'sent'
                         },
                         {
                             date: '20/03/2020 16:30:55',
-                            message: 'Bene grazie! Stasera ci vediamo?',
+                            message: 'Hey! Yeah, it was pretty chill. How about you? ',
                             status: 'received'
                         },
                         {
                             date: '20/03/2020 16:35:00',
-                            message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                            message: 'It was good. I went to the beach with some friends.',
                             status: 'sent'
                         }
                     ],
                 },
                 {
-                    name: 'Samuele',
+                    name: 'Mick',
                     avatar: './assets/img/avatar_3.jpg',
                     visible: true,
                     messages: [
                         {
                             date: '28/03/2020 10:10:40',
-                            message: 'La Marianna va in campagna',
+                            message: 'Paul is also coming.',
                             status: 'received'
                         },
                         {
                             date: '28/03/2020 10:20:10',
-                            message: 'Sicuro di non aver sbagliato chat?',
+                            message: 'Are you sure you didn\'t get the chat wrong?',
                             status: 'sent'
                         },
                         {
                             date: '28/03/2020 16:15:22',
-                            message: 'Ah scusa!',
+                            message: 'Oh, sorry! 😅',
                             status: 'received'
                         }
                     ],
                 },
                 {
-                    name: 'Alessandro B.',
+                    name: 'Alex L.',
                     avatar: './assets/img/avatar_4.jpg',
                     visible: true,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
-                            message: 'Lo sai che ha aperto una nuova pizzeria?',
+                            message: 'Have you heard that a new pizzeria has opened?',
                             status: 'sent'
                         },
                         {
                             date: '10/01/2020 15:50:00',
-                            message: 'Si, ma preferirei andare al cinema',
+                            message: 'Yes, but tonight I would like to go to the cinema.',
                             status: 'received'
                         }
                     ],
                 },
                 {
-                    name: 'Alessandro L.',
+                    name: 'Alex B.',
                     avatar: './assets/img/avatar_5.jpg',
                     visible: true,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
-                            message: 'Ricordati di chiamare la nonna',
+                            message: 'Remember to call grandma.',
                             status: 'sent'
                         },
                         {
                             date: '10/01/2020 15:50:00',
-                            message: 'Va bene, stasera la sento',
+                            message: 'Okay, I\'ll call her tonight.',
                             status: 'received'
                         }
                     ],
                 },
                 {
-                    name: 'Claudia',
-                    avatar: './assets/img/avatar_5.jpg',
+                    name: 'Olivia',
+                    avatar: './assets/img/avatar_io.jpg',
                     visible: true,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
-                            message: 'Ciao Claudia, hai novità?',
+                            message: 'Hi, any news?',
                             status: 'sent'
                         },
                         {
                             date: '10/01/2020 15:50:00',
-                            message: 'Non ancora',
+                            message: 'Not yet',
                             status: 'received'
                         },
                         {
                             date: '10/01/2020 15:51:00',
-                            message: 'Nessuna nuova, buona nuova',
+                            message: 'If you have any news, let me know.',
                             status: 'sent'
                         }
                     ],
                 },
                 {
-                    name: 'Federico',
+                    name: 'Paul',
                     avatar: './assets/img/avatar_7.jpg',
                     visible: true,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
-                            message: 'Fai gli auguri a Martina che è il suo compleanno!',
+                            message: 'Wish Martina a happy birthday!',
                             status: 'sent'
                         },
                         {
                             date: '10/01/2020 15:50:00',
-                            message: 'Grazie per avermelo ricordato, le scrivo subito!',
+                            message: 'Oh Thank you for reminding me, I\'ll write to her right away!',
                             status: 'received'
                         }
                     ],
                 },
                 {
-                    name: 'Davide',
+                    name: 'David',
                     avatar: './assets/img/avatar_8.jpg',
                     visible: true,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
-                            message: 'Ciao, andiamo a mangiare la pizza stasera?',
+                            message: 'Shall we go eat pizza tonight?',
                             status: 'received'
                         },
                         {
                             date: '10/01/2020 15:50:00',
-                            message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
+                            message: 'No, I already had it yesterday. Let\'s order sushi!',
                             status: 'sent'
                         },
                         {
@@ -254,7 +253,14 @@ createApp({
         },
         deleteChat(){
             this.contacts.splice(this.activeContact, 1)
+        }, 
+        currentHour(){
+            const currentDate = new Date; 
+            currentHour = currentDate.getHours() + ":" + currentDate.getMinutes()
+            return currentHour
         }
+    
+
      
 
     }
