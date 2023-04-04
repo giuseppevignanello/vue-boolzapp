@@ -14,6 +14,8 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            newContactName:"", 
+            newContactImage:"",
             importantContact:[],
             importantMessages : [],
             online: false,
@@ -297,9 +299,22 @@ createApp({
                 importantMessagesTitleEl.classList.add("d-block")
                
             }
-
-
-        }
+        }, 
+        addNewContact(){
+            if (this.newContactName.trim() === "") {
+                alert("Please insert at least one character character")
+            } else {
+            this.contacts.push(
+                {
+                    name: this.newContactName, 
+                    avatar: "https://picsum.photos/50/50", 
+                    visible: true, 
+                    messages: []
+                }
+            
+            )
+            this.newContactName =""
+        } }
 
     }
 }).mount('#app')

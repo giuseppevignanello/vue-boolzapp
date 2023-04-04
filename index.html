@@ -34,15 +34,21 @@
                     <div class="user_icons d-flex w-25 justify-content-evenly">
                         <div><i class="fa-solid fa-circle-notch"></i></div>
                         <div><i class="fa-solid fa-message"></i></div>
-                        <div class="dropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical"></i>
+                        <div class="dropdown" data-bs-toggle="dropdown" aria-expanded="false"><i
+                                class="fa-solid fa-ellipsis-vertical"></i>
                             <ul class="dropdown-menu">
-                                <li @click="openImportantMessages"><a class="dropdown-item" href="#">Importan Messages</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li @click="openImportantMessages"><a class="dropdown-item" href="#">Importan
+                                        Messages</a></li>
+                                <li data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                                    aria-controls="offcanvasWithBothOptions"><a class="dropdown-item" href="#">Add a
+                                        contact</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
-                              </ul></div>  
+                            </ul>
+                        </div>
                     </div>
-
                 </header>
+
+
 
                 <!-- /left header -->
                 <div id="notification_section" class="d-flex align-items-center ps-2">
@@ -57,7 +63,7 @@
 
                 </div>
                 <!-- /notification -->
-              
+
 
 
 
@@ -86,7 +92,8 @@
                     </div>
                     <div>
                         <div v-for="(message, index) in importantMessages" class="ms-5 mt-3 d-flex align-items-center">
-                            <span v-if="message.message.length > 17" class="last_message">{{message.message.substr(0, 12)}} ... </span>
+                            <span v-if="message.message.length > 17" class="last_message">{{message.message.substr(0,
+                                12)}} ... </span>
                             <span v-else class="last_message">{{message.message}}</span>
 
                             <span class="time p-2">{{message.date}}</span>
@@ -216,9 +223,27 @@
 
             </div>
             <!-- /right -->
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Add new contact</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <label for="contact_name">Add new contact name</label>
+                    <input v-model="newContactName" class="form-control" type="text" placeholder="Contact name" id="contact_name"
+                        aria-label="default input example">
+                    <label for="formImage" class="form-label">Add new contact icon</label>
+                    <input newContactImage class="form-control" type="file" id="formImage">
+                    <button @keyup.enter ="addNewContact"  @click="addNewContact" class="btn btn-primary my-2">Ok</button>
+                </div>
+            </div>
 
+            <!-- /offcanvas -->
         </div>
     </div>
+
+
 
 
     <script src="https://unpkg.com/vue-emoji-picker/dist/vue-emoji-picker.js"></script>

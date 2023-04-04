@@ -61,11 +61,11 @@ body {
     top: 0;
     right: 0;
     width: 100%;
-    z-index: 10000;
+    z-index: 1000;
 }
 
 #left .user_icons .dropdown-menu {
-    inset: 0px auto auto -144px!important;
+    inset: 0px auto auto -154px!important;
 }
 
 #notification_section {
