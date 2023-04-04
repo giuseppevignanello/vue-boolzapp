@@ -229,17 +229,12 @@ createApp({
                         status: 'sent'
                     }
                 )
-                setTimeout(()=> {
-                    const messageTimeEl = document.querySelector(".new_message_sent .time")
-                    messageTimeEl.innerHTML = "<i class='fa-solid fa-check'</i>"
-                }, 
-                500
-                )
+              
                 setTimeout(()=> {
                     const messageTimeEl = document.querySelector(".new_message_sent .time")
                     messageTimeEl.innerHTML = "<i class='fa-sharp fa-solid fa-check-double'></i>"
                 }, 
-                1000
+                1500
                 )
 
                 setTimeout(() => {
@@ -264,6 +259,12 @@ createApp({
                 3000) 
                 this.newMessage = ""
             }
+            setTimeout(()=> {
+                const messageTimeEl = document.querySelector(".new_message_sent .time")
+                messageTimeEl.innerHTML = "<i class='fa-solid fa-check'</i>"
+            }, 
+            1001
+            )
 
         },
 
