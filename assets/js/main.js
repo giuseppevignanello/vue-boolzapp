@@ -220,7 +220,6 @@ createApp({
         sendMessage() {
             const dateTime = luxon.DateTime
             this.isTyping = true
-            const currentDate = new Date;
 
             if (this.newMessage.trim() != '') {
                 this.contacts[this.activeContact].messages.push(
@@ -230,6 +229,19 @@ createApp({
                         status: 'sent'
                     }
                 )
+                setTimeout(()=> {
+                    const messageTimeEl = document.querySelector(".new_message_sent .time")
+                    messageTimeEl.innerHTML = "<i class='fa-solid fa-check'</i>"
+                }, 
+                500
+                )
+                setTimeout(()=> {
+                    const messageTimeEl = document.querySelector(".new_message_sent .time")
+                    messageTimeEl.innerHTML = "<i class='fa-sharp fa-solid fa-check-double'></i>"
+                }, 
+                1000
+                )
+
                 setTimeout(() => {
                     const dateTime = luxon.DateTime
                     this.isTyping = false,
@@ -241,8 +253,7 @@ createApp({
                             status: 'received'
                         }
                     )
-                    const messageTimeEl = document.querySelector("new_message_sent .time")
-                    messageTimeEl.innerHTML ="<i class='fa-solid fa-check'></i>"
+                   
                 },
 
                     1000)
