@@ -22,7 +22,8 @@
         <div class="wrapper d-flex my-4">
             <div id="left" class="w-100 d-lg-block w-lg-40">
                 <header id="left_header" class="d-flex align-items-center justify-content-between">
-                    <div id="user_account" class="d-flex align-items-center"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                    <div id="user_account" class="d-flex align-items-center" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                         <div class="image mx-2">
                             <img class="rounded-circle" src="./assets/img/avatar_5.jpg" alt="">
                         </div>
@@ -33,7 +34,7 @@
                     <!-- /user account -->
                     <div class="user_icons d-flex w-25 justify-content-evenly">
                         <div @click="notWorkingBtn"><i class="fa-solid fa-circle-notch"></i></div>
-                        <div @click="notWorkingBtn" ><i class="fa-solid fa-message"></i></div>
+                        <div @click="notWorkingBtn"><i class="fa-solid fa-message"></i></div>
                         <div class="dropdown" data-bs-toggle="dropdown" aria-expanded="false"><i
                                 class="fa-solid fa-ellipsis-vertical"></i>
                             <ul class="dropdown-menu">
@@ -56,7 +57,7 @@
                     </div>
                     <div class="text">
                         <span> <strong> Receive notifications for new messages </strong></span> <br>
-                        <span  @click="notWorkingBtn" ><a href="#">Enable desktop notifications</a></span>
+                        <span @click="notWorkingBtn"><a href="#">Enable desktop notifications</a></span>
 
                     </div>
 
@@ -157,8 +158,8 @@
 
                     <!-- /activeContactSection -->
                     <div class="header_icons d-flex w-25 justify-content-evenly">
-                        <div  @click="notWorkingBtn"> <i class="fa-solid fa-magnifying-glass"></i></div>
-                        <div  @click="notWorkingBtn"> <i class="fa-solid fa-paperclip"></i></div>
+                        <div @click="notWorkingBtn"> <i class="fa-solid fa-magnifying-glass"></i></div>
+                        <div @click="notWorkingBtn"> <i class="fa-solid fa-paperclip"></i></div>
                         <div class="dropdown" data-bs-toggle="dropdown" aria-expanded="false"><i
                                 class="fa-solid fa-ellipsis-vertical"></i>
                             <ul class="dropdown-menu">
@@ -182,14 +183,28 @@
                     <div v-for="(message, index) in contacts[activeContact].messages.slice().reverse()"
                         :class="message.status === 'sent' ? 'new_message_sent' : 'new_message_received'">
                         <div :class="message.status === 'sent' ? 'sent' : 'received'"
-                            class="new_message dropdown  rounded" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                            class="new_message dropdown  rounded" data-bs-toggle="dropdown" aria-expanded="false">
                             <p class="text">{{message.message}}</p>
                             <span class="time">{{message.date}}</span>
                             <div id="down_icon"> <i class="fa-solid fa-chevron-down fa-xl"></i></div>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Answer</a></li>
-                                <li><a class="dropdown-item" href="#">Reactions</a></li>
+                                <li class="dropdown" data-bs-toggle="dropdown" aria-expanded="false"><a
+                                        class="dropdown-item" href="#">Reactions</a>
+
+                                    <ul id="reactions" class="dropdown-menu">
+                                        <li class="d-inline">👍</li>
+                                        <li class="d-inline">😂</li>
+                                        <li class="d-inline">❤️</li>
+                                        <li class="d-inline">🥺</li>
+                                        
+                                        <li class="d-inline">😯</li>
+                                        <li class="d-inline">😅</li>
+                                        
+                            
+                                        
+                                    </ul>
+                                </li>
                                 <li><a class="dropdown-item" href="#">Download</a></li>
                                 <li><a class="dropdown-item" href="#">Forward</a></li>
                                 <li
@@ -210,14 +225,14 @@
                 <footer id="right_footer">
                     <div class="container">
                         <div class="row justify-content-between align-items-center py-2">
-                            <div  @click="notWorkingBtn" class="emoji col-1 d-flex justify-content-center">
+                            <div @click="notWorkingBtn" class="emoji col-1 d-flex justify-content-center">
                                 <i class="fa-regular fa-face-smile fa-xl"></i>
                             </div>
                             <div class="input_message col-10">
                                 <input @keyup.enter="sendMessage" v-model="newMessage" type="text" class="form-control"
                                     id="message" placeholder=" Scrivi un messaggio">
                             </div>
-                            <div  @click="notWorkingBtn" class="audio col-1 d-flex justify-content-center">
+                            <div @click="notWorkingBtn" class="audio col-1 d-flex justify-content-center">
                                 <i
                                     :class="newMessage != '' ? 'fa-solid fa-paper-plane fa-xl' : 'fa-solid fa-microphone fa-xl'"></i>
                             </div>
@@ -236,25 +251,27 @@
                 </div>
                 <div class="offcanvas-body">
                     <label for="contact_name">Add new contact name</label>
-                    <input v-model="newContactName" class="form-control" type="text" placeholder="Contact name" id="contact_name"
-                        aria-label="default input example">
+                    <input v-model="newContactName" class="form-control" type="text" placeholder="Contact name"
+                        id="contact_name" aria-label="default input example">
                     <label for="formImage" class="form-label">Add new contact icon</label>
                     <input newContactImage class="form-control" type="file" id="formImage">
-                    <button @keyup.enter ="addNewContact"  @click="addNewContact" class="btn btn-primary my-2">Ok</button>
+                    <button @keyup.enter="addNewContact" @click="addNewContact" class="btn btn-primary my-2">Ok</button>
                 </div>
             </div>
 
 
 
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+                id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
                 <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasScrollingLabel">About me</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">About me</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                  <p>Hi, I'm Giuseppe Vignanello and I'm a Boolean student. Now I'm studying front-end web development and this is my first project with Vue.js  </p>
+                    <p>Hi, I'm Giuseppe Vignanello and I'm a Boolean student. Now I'm studying front-end web development
+                        and this is my first project with Vue.js </p>
                 </div>
-              </div>
+            </div>
 
             <!-- /offcanvas -->
         </div>
@@ -262,7 +279,9 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.3.0/luxon.min.js" integrity="sha512-KKbQg5o92MwtJKR9sfm/HkREzfyzNMiKPIQ7i7SZOxwEdiNCm4Svayn2DBq7MKEdrqPJUOSIpy1v6PpFlCQ0YA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.3.0/luxon.min.js"
+        integrity="sha512-KKbQg5o92MwtJKR9sfm/HkREzfyzNMiKPIQ7i7SZOxwEdiNCm4Svayn2DBq7MKEdrqPJUOSIpy1v6PpFlCQ0YA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>

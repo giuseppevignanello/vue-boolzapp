@@ -250,6 +250,9 @@ body {
 .dropdown-toggle {
     white-space: inherit!important;
 }
+#reactions {
+    width: 30px;
+}
 
 /* #endregion rigth */
 
