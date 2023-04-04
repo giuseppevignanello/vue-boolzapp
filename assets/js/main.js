@@ -218,27 +218,31 @@ createApp({
 
         },
         sendMessage() {
+            const dateTime = luxon.DateTime
             this.isTyping = true
             const currentDate = new Date;
 
             if (this.newMessage.trim() != '') {
                 this.contacts[this.activeContact].messages.push(
                     {
-                        date: currentDate.getHours() + ":" + currentDate.getMinutes(),
+                        date: dateTime.now().setLocale('it').toLocaleString(dateTime.TIME_24_SIMPLE),
                         message: this.newMessage,
                         status: 'sent'
                     }
                 )
                 setTimeout(() => {
+                    const dateTime = luxon.DateTime
                     this.isTyping = false,
                     this.online = true
                     this.contacts[this.activeContact].messages.push(
                         {
-                            date: currentDate.getHours() + ":" + currentDate.getMinutes(),
+                            date: dateTime.now().setLocale('it').toLocaleString(dateTime.TIME_24_SIMPLE),
                             message: this.randomAnswerList[this.randomAnswer(0, this.randomAnswerList.length - 1)],
                             status: 'received'
                         }
                     )
+                    const messageTimeEl = document.querySelector("new_message_sent .time")
+                    messageTimeEl.innerHTML ="<i class='fa-solid fa-check'></i>"
                 },
 
                     1000)
