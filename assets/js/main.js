@@ -314,7 +314,10 @@ createApp({
             
             )
             this.newContactName =""
-        } }
+        } }, 
+        notWorkingBtn () {
+            alert("Sorry, this doesn't work, yet 😅 Let's try something else!")
+        }
 
     }
 }).mount('#app')

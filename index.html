@@ -32,8 +32,8 @@
                     </div>
                     <!-- /user account -->
                     <div class="user_icons d-flex w-25 justify-content-evenly">
-                        <div><i class="fa-solid fa-circle-notch"></i></div>
-                        <div><i class="fa-solid fa-message"></i></div>
+                        <div @click="notWorkingBtn"><i class="fa-solid fa-circle-notch"></i></div>
+                        <div @click="notWorkingBtn" ><i class="fa-solid fa-message"></i></div>
                         <div class="dropdown" data-bs-toggle="dropdown" aria-expanded="false"><i
                                 class="fa-solid fa-ellipsis-vertical"></i>
                             <ul class="dropdown-menu">
@@ -42,7 +42,6 @@
                                 <li data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
                                     aria-controls="offcanvasWithBothOptions"><a class="dropdown-item" href="#">Add a
                                         contact</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </div>
                     </div>
@@ -57,7 +56,7 @@
                     </div>
                     <div class="text">
                         <span> <strong> Receive notifications for new messages </strong></span> <br>
-                        <span><a href="#">Enable desktop notifications</a></span>
+                        <span  @click="notWorkingBtn" ><a href="#">Enable desktop notifications</a></span>
 
                     </div>
 
@@ -138,7 +137,10 @@
             <div id="right" class="d-none w-lg-60 d-lg-flex flex-column justify-content-between">
                 <header id="right_header" class="d-flex align-items-center justify-content-between">
                     <div @click="comeBackToContacts" class=" comeBackIcon ms-2 d-lg-none"><i
-                            class="fa fa-arrow-circle-left fa-xl" aria-hidden="true"></i></div>
+                            class="fa fa-arrow-circle-left fa-xl" aria-hidden="true"></i>
+                    </div>
+
+                    <!-- /mobile only section -->
                     <div v-if="activeContact===-1" class="active_contact_section contact d-flex align-items-center">
                     </div>
                     <div v-else class="active_contact_section contact d-flex align-items-center">
@@ -152,9 +154,11 @@
                             <span v-else class="last_login">last seen today at {{currentHour()}}</span>
                         </div>
                     </div>
+
+                    <!-- /activeContactSection -->
                     <div class="header_icons d-flex w-25 justify-content-evenly">
-                        <div> <i class="fa-solid fa-magnifying-glass"></i></div>
-                        <div> <i class="fa-solid fa-paperclip"></i></div>
+                        <div  @click="notWorkingBtn"> <i class="fa-solid fa-magnifying-glass"></i></div>
+                        <div  @click="notWorkingBtn"> <i class="fa-solid fa-paperclip"></i></div>
                         <div class="dropdown" data-bs-toggle="dropdown" aria-expanded="false"><i
                                 class="fa-solid fa-ellipsis-vertical"></i>
                             <ul class="dropdown-menu">
@@ -169,8 +173,8 @@
                 <div v-if="activeContact === -1"
                     class="welcome_page d-flex align-items-center justify-content-center flex-column">
                     <img src="./assets/img/pc_smartphone.png" alt="">
-                    <h2>Boolzapp Web</h2>
-                    <h4 class="text-center">send messages to fictional people and receive random answers</h4>
+                    <h3>Boolzapp Web</h3>
+                    <h5 class="text-center">send messages to fictional people and receive random answers</h5>
                     <span><i class="me-2 fa-solid fa-unlock"></i>obviously, without end to end cryptography</span>
                 </div>
 
@@ -205,14 +209,14 @@
                 <footer id="right_footer">
                     <div class="container">
                         <div class="row justify-content-between align-items-center py-2">
-                            <div class="emoji col-1 d-flex justify-content-center">
+                            <div  @click="notWorkingBtn" class="emoji col-1 d-flex justify-content-center">
                                 <i class="fa-regular fa-face-smile fa-xl"></i>
                             </div>
                             <div class="input_message col-10">
                                 <input @keyup.enter="sendMessage" v-model="newMessage" type="text" class="form-control"
                                     id="message" placeholder=" Scrivi un messaggio">
                             </div>
-                            <div class="audio col-1 d-flex justify-content-center">
+                            <div  @click="notWorkingBtn" class="audio col-1 d-flex justify-content-center">
                                 <i
                                     :class="newMessage != '' ? 'fa-solid fa-paper-plane fa-xl' : 'fa-solid fa-microphone fa-xl'"></i>
                             </div>
