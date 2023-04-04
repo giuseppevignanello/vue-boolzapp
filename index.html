@@ -22,7 +22,7 @@
         <div class="wrapper d-flex my-4">
             <div id="left" class="w-100 d-lg-block w-lg-40">
                 <header id="left_header" class="d-flex align-items-center justify-content-between">
-                    <div id="user_account" class="d-flex align-items-center">
+                    <div id="user_account" class="d-flex align-items-center"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                         <div class="image mx-2">
                             <img class="rounded-circle" src="./assets/img/avatar_5.jpg" alt="">
                         </div>
@@ -242,6 +242,18 @@
                     <button @keyup.enter ="addNewContact"  @click="addNewContact" class="btn btn-primary my-2">Ok</button>
                 </div>
             </div>
+
+
+
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasScrollingLabel">About me</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <p>Hi, I'm Giuseppe Vignanello and I'm a Boolean student. Now I'm studying front-end web development and this is my first project with Vue.js  </p>
+                </div>
+              </div>
 
             <!-- /offcanvas -->
         </div>
