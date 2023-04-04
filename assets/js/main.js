@@ -14,6 +14,8 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            // send: false, 
+            // time: true,
             newContactName:"", 
             newContactImage:"",
             importantContact:[],
@@ -230,12 +232,7 @@ createApp({
                     }
                 )
               
-                setTimeout(()=> {
-                    const messageTimeEl = document.querySelector(".new_message_sent .time")
-                    messageTimeEl.innerHTML = "<i class='fa-sharp fa-solid fa-check-double'></i>"
-                }, 
-                1500
-                )
+               
 
                 setTimeout(() => {
                     const dateTime = luxon.DateTime
@@ -259,12 +256,12 @@ createApp({
                 3000) 
                 this.newMessage = ""
             }
-            setTimeout(()=> {
-                const messageTimeEl = document.querySelector(".new_message_sent .time")
-                messageTimeEl.innerHTML = "<i class='fa-solid fa-check'</i>"
-            }, 
-            1001
-            )
+            // setTimeout(()=> {
+            //     this.send = !this.send, 
+            //     this.time =!this.time 
+            // }, 
+            // 1001
+            // )
 
         },
 

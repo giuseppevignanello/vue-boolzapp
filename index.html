@@ -185,6 +185,9 @@
                         <div :class="message.status === 'sent' ? 'sent' : 'received'"
                             class="new_message dropdown  rounded" data-bs-toggle="dropdown" aria-expanded="false">
                             <p class="text">{{message.message}}</p>
+                            <!-- <span v-show="send">
+                                <i class='fa-solid fa-check'></i></i>
+                            </span> -->
                             <span class="time">{{message.date}}</span>
                             <div id="down_icon"> <i class="fa-solid fa-chevron-down fa-xl"></i></div>
                             <ul class="dropdown-menu">
