@@ -182,10 +182,11 @@
                     <div v-for="(message, index) in contacts[activeContact].messages.slice().reverse()"
                         :class="message.status === 'sent' ? 'new_message_sent' : 'new_message_received'">
                         <div :class="message.status === 'sent' ? 'sent' : 'received'"
-                            class="new_message dropdown dropdown-toggle rounded" data-bs-toggle="dropdown"
+                            class="new_message dropdown  rounded" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <p class="text">{{message.message}}</p>
                             <span class="time">{{message.date}}</span>
+                            <div id="down_icon"> <i class="fa-solid fa-chevron-down fa-xl"></i></div>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Answer</a></li>
                                 <li><a class="dropdown-item" href="#">Reactions</a></li>

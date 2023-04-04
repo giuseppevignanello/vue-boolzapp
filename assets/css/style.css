@@ -212,6 +212,21 @@ body {
     position: relative;
 }
 
+.new_message #down_icon {
+    position: absolute; 
+    top: 20px;
+    right: 20px;
+    display: none;
+}
+
+.new_message:hover #down_icon{
+    display: block
+}
+
+.new_message:hover .time {
+    visibility: hidden
+}
+
 .new_message_sent {
     display: flex;
     justify-content: end;
