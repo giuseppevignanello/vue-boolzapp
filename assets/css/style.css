@@ -31,7 +31,7 @@ body {
 .wrapper {
     width: 80%;
     margin: auto auto;
-    height: 900px;
+    height: 90vh
 }
 
 /* #region left */
@@ -64,14 +64,6 @@ body {
     z-index: 10000;
 }
 
-#left_footer, 
-#right_footer {
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    z-index: 10000;
-}
-
 #left .user_icons .dropdown-menu {
     inset: 0px auto auto -144px!important;
 }
@@ -88,12 +80,13 @@ body {
     top: 150px;
 }
 
+
 #important_messages,
 #contacts {
     position: sticky;
-    top:200px;
+    top: 200px;
     overflow-y: auto;
-    height: 700px;
+    height: calc(100% - 300px);
     overflow-x: hidden;
 }
 
@@ -171,7 +164,7 @@ body {
     height:calc(100% - 140px)
 }
 .welcome_page img {
-    width: 250px; 
+    width: 150px; 
     position: absolute;
     bottom: 50%; 
     left: 50%;
