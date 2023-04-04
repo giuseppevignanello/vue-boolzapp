@@ -15,7 +15,10 @@ createApp({
     data() {
         return {
             online: false,
-            isWriting: false,
+            isTyping: false,
+            searchInput: "",
+            newMessage: "",
+            activeContact: -1,
             randomAnswerList: ["I'm not sure about that.",
             "It's possible, but I can't say for certain.",
             "Definitely not!",
@@ -35,9 +38,6 @@ createApp({
             "I'm sorry, I'm not able to help you with that.",
             "I'm not comfortable discussing that topic.",
             "That's something you'll need to figure out for yourself."],
-            searchInput: "",
-            newMessage: "",
-            activeContact: -1,
             contacts: [
                 {
                     name: 'Luke',
@@ -45,17 +45,17 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '15:30',
                             message: 'Did you walk the dog?',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '15:50',
                             message: 'Remember to hang the washing',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 16:15:22',
+                            date: '16:15',
                             message: 'All done!',
                             status: 'received'
                         }
@@ -67,17 +67,17 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '20/03/2020 16:30:00',
+                            date: '16:30',
                             message: 'Hi, did you have a good weekend?',
                             status: 'sent'
                         },
                         {
-                            date: '20/03/2020 16:30:55',
+                            date: '16:30',
                             message: 'Hey! Yeah, it was pretty chill. How about you? ',
                             status: 'received'
                         },
                         {
-                            date: '20/03/2020 16:35:00',
+                            date: '16:35',
                             message: 'It was good. I went to the beach with some friends.',
                             status: 'sent'
                         }
@@ -111,12 +111,12 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '15:30',
                             message: 'Have you heard that a new pizzeria has opened?',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '15:50',
                             message: 'Yes, but tonight I would like to go to the cinema.',
                             status: 'received'
                         }
@@ -128,12 +128,12 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '15:30',
                             message: 'Remember to call grandma.',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '15:50',
                             message: 'Okay, I\'ll call her tonight.',
                             status: 'received'
                         }
@@ -145,17 +145,17 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '15:30',
                             message: 'Hi, any news?',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '15:50',
                             message: 'Not yet',
                             status: 'received'
                         },
                         {
-                            date: '10/01/2020 15:51:00',
+                            date: '15:51',
                             message: 'If you have any news, let me know.',
                             status: 'sent'
                         }
@@ -167,12 +167,12 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '15:30',
                             message: 'Wish Martina a happy birthday!',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '15:50',
                             message: 'Oh Thank you for reminding me, I\'ll write to her right away!',
                             status: 'received'
                         }
@@ -184,17 +184,17 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '15:30',
                             message: 'Shall we go eat pizza tonight?',
                             status: 'received'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '15:50',
                             message: 'No, I already had it yesterday. Let\'s order sushi!',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:51:00',
+                            date: '15:51',
                             message: 'OK!!',
                             status: 'received'
                         }
@@ -206,25 +206,31 @@ createApp({
     methods: {
         clickOnContacts(index) {
             this.activeContact = index;
+            const leftEl = document.getElementById("left"); 
+            leftEl.classList.add("d-none"); 
+            const rightEl = document.getElementById("right");
+            rightEl.classList.remove("d-none"); 
+            rightEl.classList.add("w-100")
+
         },
         sendMessage() {
-            this.isWriting = true
+            this.isTyping = true
             const currentDate = new Date;
 
             if (this.newMessage.trim() != '') {
                 this.contacts[this.activeContact].messages.push(
                     {
-                        date: currentDate.getDate() + '/' + currentDate.getMonth() + "/" + currentDate.getFullYear() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds(),
+                        date: currentDate.getHours() + ":" + currentDate.getMinutes(),
                         message: this.newMessage,
                         status: 'sent'
                     }
                 )
                 setTimeout(() => {
-                    this.isWriting = false,
+                    this.isTyping = false,
                     this.online = true
                     this.contacts[this.activeContact].messages.push(
                         {
-                            date: currentDate.getDate() + '/' + currentDate.getMonth() + "/" + currentDate.getFullYear() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds(),
+                            date: currentDate.getHours() + ":" + currentDate.getMinutes(),
                             message: this.randomAnswerList[this.randomAnswer(0, this.randomAnswerList.length - 1)],
                             status: 'received'
                         }
@@ -258,10 +264,14 @@ createApp({
             const currentDate = new Date; 
             currentHour = currentDate.getHours() + ":" + currentDate.getMinutes()
             return currentHour
+        }, 
+        comeBackToContacts(){
+            const leftEl = document.getElementById("left"); 
+            leftEl.classList.remove("d-none"); 
+            leftEl.classList.add("w-100"); 
+            const rightEl = document.getElementById("right");
+            rightEl.classList.add("d-none")
         }
-    
-
-     
 
     }
 }).mount('#app')

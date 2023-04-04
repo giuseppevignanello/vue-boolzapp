@@ -20,7 +20,7 @@
 
     <div id="app">
         <div class="wrapper d-flex my-4">
-            <div id="left">
+            <div id="left" class="w-100 d-lg-block w-lg-40">
                 <header id="left_header" class="d-flex align-items-center justify-content-between">
                     <div id="user_account" class="d-flex align-items-center">
                         <div class="image mx-2">
@@ -90,8 +90,9 @@
 
             </div>
             <!-- /left -->
-            <div id="right" class="d-flex flex-column justify-content-between">
+            <div id="right" class="d-none w-lg-60 d-lg-flex flex-column justify-content-between">
                 <header id="right_header" class="d-flex align-items-center justify-content-between">
+                    <div @click="comeBackToContacts" class=" comeBackIcon ms-2 d-lg-none"><i class="fa fa-arrow-circle-left fa-xl" aria-hidden="true"></i></div>
                     <div v-if="activeContact===-1" class="active_contact_section contact d-flex align-items-center"></div>
                     <div v-else class="active_contact_section contact d-flex align-items-center">
                         <div class="image mx-2">
@@ -99,7 +100,7 @@
                         </div>
                         <div class="name">
                             <span><strong> {{contacts[activeContact].name}} </strong></span> <br>
-                            <span v-if="isWriting" class="last_login"> is writing... </span>
+                            <span v-if="isTyping" class="last_login"> is Typing... </span>
                             <span v-else-if="online" class="last_login">online</span>
                             <span v-else class="last_login">last seen today at {{currentHour()}}</span>
                         </div>
@@ -129,7 +130,7 @@
                     <div v-for="(message, index) in contacts[activeContact].messages.slice().reverse()"
                     :class="message.status === 'sent' ? 'new_message_sent' : 'new_message_received'">
                         <div :class="message.status === 'sent' ? 'sent' : 'received'"
-                            class="new_message dropdown dropdown-toggle" data-bs-toggle="dropdown"
+                            class="new_message dropdown dropdown-toggle rounded" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <p class="text">{{message.message}}</p>
                             <span class="time">{{message.date}}</span>
