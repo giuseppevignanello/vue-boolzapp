@@ -72,6 +72,9 @@ body {
     z-index: 10000;
 }
 
+#left .user_icons .dropdown-menu {
+    inset: 0px auto auto -144px!important;
+}
 
 #notification_section {
     position: sticky;
@@ -85,6 +88,7 @@ body {
     top: 150px;
 }
 
+#important_messages,
 #contacts {
     position: sticky;
     top:200px;
@@ -93,6 +97,14 @@ body {
     overflow-x: hidden;
 }
 
+#important_messages img {
+    width: 100%;
+}
+#important_messages > div {
+    height: 50px; 
+    object-fit: contain;
+}
+.important_message,
 .contact .image img,
 #user_account .image img
  {

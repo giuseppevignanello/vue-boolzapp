@@ -14,6 +14,8 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            importantContact:[],
+            importantMessages : [],
             online: false,
             isTyping: false,
             searchInput: "",
@@ -271,6 +273,27 @@ createApp({
             leftEl.classList.add("w-100"); 
             const rightEl = document.getElementById("right");
             rightEl.classList.add("d-none")
+        }, 
+        addToImportant(contact, message){
+            this.importantContact.push(contact)
+            this.importantMessages.push(message)  
+        }, 
+        openImportantMessages(){
+            const importantMessagesEl = document.getElementById("important_messages");
+            const contactsEl = document.getElementById("contacts")
+            contactsEl.classList.add("d-none") 
+
+            if (importantMessagesEl.classList.contains("d-flex")) {
+                importantMessagesEl.classList.remove("d-flex"); 
+                importantMessagesEl.classList.add("d-none"); 
+                contactsEl.classList.remove("d-none"); 
+            } else {
+                importantMessagesEl.classList.remove("d-none"); 
+                importantMessagesEl.classList.add("d-flex"); 
+               
+            }
+
+
         }
 
     }
