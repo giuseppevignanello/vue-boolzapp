@@ -68,6 +68,7 @@
                     </div>
                 </div>
                 <!-- /search -->
+                <h3 class=" important_messages_title m-3 d-none"> Important messages</h3>
                 <div id="important_messages" class="d-none">
                     <div>
                         <div v-for="(contact, index) in importantContact" class="important_message my-2">
@@ -85,7 +86,8 @@
                     </div>
                     <div>
                         <div v-for="(message, index) in importantMessages" class="ms-5 mt-3 d-flex align-items-center">
-                            <span class="last_message">{{message.message}}</span>
+                            <span v-if="message.message.length > 17" class="last_message">{{message.message.substr(0, 12)}} ... </span>
+                            <span v-else class="last_message">{{message.message}}</span>
 
                             <span class="time p-2">{{message.date}}</span>
                         </div>

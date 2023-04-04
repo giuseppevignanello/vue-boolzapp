@@ -91,17 +91,17 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '28/03/2020 10:10:40',
+                            date: '10:10',
                             message: 'Paul is also coming.',
                             status: 'received'
                         },
                         {
-                            date: '28/03/2020 10:20:10',
+                            date: '10:20',
                             message: 'Are you sure you didn\'t get the chat wrong?',
                             status: 'sent'
                         },
                         {
-                            date: '28/03/2020 16:15:22',
+                            date: '16:15',
                             message: 'Oh, sorry! 😅',
                             status: 'received'
                         }
@@ -279,6 +279,7 @@ createApp({
             this.importantMessages.push(message)  
         }, 
         openImportantMessages(){
+            const importantMessagesTitleEl = document.querySelector(".important_messages_title");
             const importantMessagesEl = document.getElementById("important_messages");
             const contactsEl = document.getElementById("contacts")
             contactsEl.classList.add("d-none") 
@@ -287,9 +288,13 @@ createApp({
                 importantMessagesEl.classList.remove("d-flex"); 
                 importantMessagesEl.classList.add("d-none"); 
                 contactsEl.classList.remove("d-none"); 
+                importantMessagesTitleEl.classList.remove("d-block")
+                importantMessagesTitleEl.classList.add("d-none")
             } else {
                 importantMessagesEl.classList.remove("d-none"); 
                 importantMessagesEl.classList.add("d-flex"); 
+                importantMessagesTitleEl.classList.remove("d-none")
+                importantMessagesTitleEl.classList.add("d-block")
                
             }
 

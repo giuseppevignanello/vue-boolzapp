@@ -104,6 +104,10 @@ body {
     height: 50px;
 }
 
+#important_messages .time {
+    margin-left: 4rem
+}
+
 .notification_icon {
     height: 45px;
 }
